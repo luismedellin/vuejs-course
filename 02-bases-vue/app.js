@@ -10,7 +10,15 @@ const quotes = [
 const app = Vue.createApp({
     data() {
         return {
-            quotes
+            quotes,
+            newQuote: 'Hola mundo'
+        }
+    },
+    methods: {
+        addQuote(event) {
+            if(event.charCode === 13){
+                quotes.unshift({quote: this.newQuote, author: 'Luis Velandia'});
+            }
         }
     }
 })

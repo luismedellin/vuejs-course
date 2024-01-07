@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue.js Intro</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="myApp">
-        <h1>Batman quotes</h1>
-        <ul>
-            <li v-for="({quote, author}, index) in quotes">
-                <span>{{ index+1 }} - {{ quote }}</span>
-                <blockquote>-{{author}}</blockquote>
-            </li>
-        </ul>
+      <h1>Batman quotes <smal>{{newQuote}}</smal></h1>
+
+      <input
+        type="text"
+        v-model="newQuote"
+        v-on:keypress="addQuote" />
+      <hr />
+
+      <ul>
+        <li v-for="({quote, author}, index) in quotes">
+          <span>{{ index+1 }} - {{ quote }}</span>
+          <blockquote>-{{author}}</blockquote>
+        </li>
+      </ul>
     </div>
-    
+
     <script src="vue.global.js"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
