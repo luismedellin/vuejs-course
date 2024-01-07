@@ -15,10 +15,10 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        addQuote(event) {
-            if(event.charCode === 13){
-                quotes.unshift({quote: this.newQuote, author: 'Luis Velandia'});
-            }
+        addQuote() {
+            quotes.unshift({
+                quote: this.newQuote
+            });
         }
     }
 })
