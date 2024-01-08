@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <Counter v-bind:start="5" />
-  <Counter :start="5" />
+  <Counter :start="-1" />
   <Counter/>
 </template>
 

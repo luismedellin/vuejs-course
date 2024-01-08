@@ -14,7 +14,10 @@ export default {
     title: String,
     start: {
       type: Number,
-      default: 1
+      default: 1,
+      validator(value) {
+        return value >= 0
+      }
       // required: true
     }
   },
