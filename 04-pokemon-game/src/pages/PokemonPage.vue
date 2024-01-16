@@ -2,7 +2,7 @@
     <h1>¿Quién es este Pokémon?</h1>
 
     <PokemonPicture :pokemonId="6" :showPokemon="false" />
-    <PokemonOption />
+    <PokemonOption :pokemons="pokemonArr" />
 </template>
 
 <script>
@@ -15,5 +15,19 @@ console.log(getPokemonOptions())
 
 export default {
   components: { PokemonPicture, PokemonOption },
+  data() {
+    return {
+      pokemonArr: []
+    }
+  },
+  methods: {
+    async misPokemonArray() {
+      this.pokemonArr = await getPokemonOptions()
+      console.log(this.pokemonArr)
+    }
+  },
+  mounted() {
+    this.misPokemonArray()
+  }
 }
 </script>
