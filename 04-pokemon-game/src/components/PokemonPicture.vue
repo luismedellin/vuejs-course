@@ -1,6 +1,6 @@
 <template>
     <div class="pokemon-container">
-          <img
+        <img
             class="hidden-pokemon"
             :src="imageSrc"
             alt="pokemon">

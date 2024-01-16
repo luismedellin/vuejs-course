@@ -1,8 +1,12 @@
 <template>
+  <h1 v-if="!pokemon">Espere por favor...</h1>
+
+  <div v-else>
     <h1>¿Quién es este Pokémon?</h1>
 
-    <PokemonPicture :pokemonId="6" :showPokemon="false" />
+    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
     <PokemonOption :pokemons="pokemonArr" />
+  </div>
 </template>
 
 <script>
@@ -17,13 +21,17 @@ export default {
   components: { PokemonPicture, PokemonOption },
   data() {
     return {
-      pokemonArr: []
+      pokemonArr: [],
+      pokemon: null,
+      showPokemon: false
     }
   },
   methods: {
     async misPokemonArray() {
       this.pokemonArr = await getPokemonOptions()
-      console.log(this.pokemonArr)
+
+      const rndInt = Math.floor(Math.random()*4)
+      this.pokemon = this.pokemonArr[rndInt]
     }
   },
   mounted() {
