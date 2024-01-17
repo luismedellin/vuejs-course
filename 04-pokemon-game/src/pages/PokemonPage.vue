@@ -9,6 +9,14 @@
       :pokemons="pokemonArr" 
       @selection="checkAnswer(1, $event)"
       />
+
+    <template v-if="showAnswer">
+      <h2>{{message}}</h2>
+      <button @click="newGame">
+        Nuevo Juego
+      </button>
+    </template>
+
   </div>
 </template>
 
@@ -26,7 +34,9 @@ export default {
     return {
       pokemonArr: [],
       pokemon: null,
-      showPokemon: false
+      showPokemon: false,
+      showAnswer: false,
+      message: ''
     }
   },
   methods: {
@@ -37,8 +47,21 @@ export default {
       this.pokemon = this.pokemonArr[rndInt]
     },
     checkAnswer(numero, pokemonId) {
-      console.log('Pokemon checked!', numero, pokemonId)
-      this.showPokemon = pokemonId === this.pokemon.id
+      this.showPokemon = this.showAnswer = true
+
+      if(pokemonId === this.pokemon.id){
+        this.message = `Correcto!!!"`
+      }else {
+        this.message = `Opps era ${this.pokemon.name}`
+      }
+    },
+    newGame() {
+      this.pokemonArr = []
+      this.showPokemon = this.showAnswer = false
+      this.message = ''
+      this.pokemon = null
+
+      this.misPokemonArray()
     }
   },
   mounted() {
