@@ -4,7 +4,7 @@
             class="hidden-pokemon"
             :src="imageSrc"
             alt="pokemon">
-        <img v-if="showPokemon"
+        <img v-else
             class="fade-in"
             :src="imageSrc"
             alt="pokemon">
