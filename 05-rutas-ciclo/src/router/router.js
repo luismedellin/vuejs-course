@@ -11,7 +11,12 @@ import ListPage from '@/modules/pokemon/pages/ListPage'
 const routes = [
     { 
         path: '/', 
-        component: ListPage 
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/ListPage')
     },
     { 
         path: '/about', 
