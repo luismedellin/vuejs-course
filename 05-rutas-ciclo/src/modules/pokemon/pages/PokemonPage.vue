@@ -1,5 +1,5 @@
 <template>
-    <h1>Pokemon Page <span>{{id}}</span></h1>
+    <h1>Pokemon Page <span>{{$route.params.id}}</span></h1>
 </template>
 
 <script>
@@ -12,15 +12,16 @@ export default {
     },
     data() {
         return {
-            // id: null
+            // id: this.$route.params.id
         }
     },
 
     create() {
         // console.log(this.$route)
-        const { id } = this.$route.params
-        console.log(id)
+        // const { id } = this.$route.params
+        // console.log(id)
         // this.id = id
+        console.log(this.$attrs)
     }
 }
 </script>
