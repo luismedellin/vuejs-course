@@ -20,10 +20,11 @@ const routes = [
     },
     { 
         path: '/about', 
+        name: 'about',
         component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/AboutPage')
     },
     { 
-        path: '/:id', 
+        path: '/pokemonid/:id', 
         name: 'pokemon-id',
         component: () => import(/* webpackChunkName: "PokemonPage" */ '@/modules/pokemon/pages/PokemonPage'),
         props: (route) => {
