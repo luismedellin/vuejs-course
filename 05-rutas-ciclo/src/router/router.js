@@ -14,30 +14,23 @@ const routes = [
         redirect: '/home'
     },
     {
-        path: '/pokemon',
-        name: 'pokemon',
-        component: () => import(/* webpackChunkName: "PokemonLayout" */ '@/modules/pokemon/layouts/PokemonLayout'),
-        children: [
-            {
-                path: '/home',
-                name: 'home',
-                component: () => import(/* webpackchunkname: "aboutpage" */ '@/modules/pokemon/pages/listpage')
-            },
-            { 
-                path: '/about', 
-                name: 'about',
-                component: () => import(/* webpackchunkname: "aboutpage" */ '@/modules/pokemon/pages/aboutpage')
-            },
-            { 
-                path: '/pokemonid/:id', 
-                name: 'pokemon-id',
-                component: () => import(/* webpackchunkname: "pokemonpage" */ '@/modules/pokemon/pages/pokemonpage'),
-                props: (route) => {
-                    const id = number(route.params.id);
-                    return isnan(id) ? { id: 1 } : { id }
-                }
-            }
-        ]
+        path: '/home',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/ListPage')
+    },
+    { 
+        path: '/about', 
+        name: 'about',
+        component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/AboutPage')
+    },
+    { 
+        path: '/pokemonid/:id', 
+        name: 'pokemon-id',
+        component: () => import(/* webpackChunkName: "PokemonPage" */ '@/modules/pokemon/pages/PokemonPage'),
+        props: (route) => {
+            const id = Number(route.params.id);
+            return isNaN(id) ? { id: 1 } : { id }
+        }
     },
     { 
         path: '/:pathMatch(.*)*', 
