@@ -4,7 +4,7 @@ import counterStore from './counter'
 
 
 export default createStore({
-    module: {
+    modules: {
         counter: counterStore
     }
 })
