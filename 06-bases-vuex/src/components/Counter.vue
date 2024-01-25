@@ -6,7 +6,7 @@
     <button @click="increment">+1</button>
     <button @click="incrementBy(5)">+5</button>
     <!-- <button @click="incrementRandomInt">Random</button> -->
-    <button @click="randomInt">Random</button>
+    <button @click="randomInt" :disabled="isLoading">Random</button>
     <!-- <button @click="$store.dispatch('incrementRandomInt')">Random</button> no recomendado -->
 
     <h1>mapState</h1>
@@ -23,7 +23,7 @@ export default {
         countComputed() {
             return this.$store.state.count
         },
-        ...mapState(['count', 'lastMutation'])
+        ...mapState(['count', 'lastMutation', 'isLoading'])
         // ...mapState({
         //     count: state => state.count,
         //     lastMutation: state => state.lastMutation
