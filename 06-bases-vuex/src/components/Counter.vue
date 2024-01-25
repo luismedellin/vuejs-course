@@ -1,7 +1,12 @@
 <template>
     <h1>Counter vuex</h1>
     <h2>Direct access: {{ $store.state.count }}</h2>
-    <!-- <h2>Computed: {{ countComputed }}</h2> -->
+    <h2>Computed: {{ countComputed }}</h2>
+
+    <button @click="increment">+1</button>
+    <button @click="incrementBy(5)">+5</button>
+    <button>Random</button>
+
     <h1>mapState</h1>
     <h2>mapState: {{ count }}</h2>
     <h2>mapState: {{ lastMutation }}</h2>
@@ -21,6 +26,14 @@ export default {
         //     count: state => state.count,
         //     lastMutation: state => state.lastMutation
         // })
+    },
+    methods: {
+        increment() {
+            this.$store.commit('increment')
+        },
+        incrementBy(value) {
+            this.$store.commit('incrementBy', value)
+        }
     }
 }
 </script>
